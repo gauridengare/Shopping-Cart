@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js”></script>
+
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="css/index.css"> 
+<body>
+<div id="headline">
+<h1>LOGIN or CREATE ACCOUNT</h1>
+</div>
+
+<div id="login">
+<form  method="GET"> 
+<input type="text" name="username" /><br>
+<br>
+<input type="text" name="password" /><br>
+<br>
+<!-- <input type="submit" value="SIGN UP" /> -->
+<button type="submit" formaction="login.jsp">LOG IN</button><br>
+<input type="submit" formaction="Register.jsp" onclick="myFunction()" value="SIGN UP" />
+</form>
+</div>
+
+<p><span id = "message"></span> </p>
+<p1 id="t1" hidden><font size="6" color="white"><strong>Singed In...Log In now....</strong></font></p1>
+
+<script type="text/javascript">
+function myFunction() {
+	
+	var msg = document.getElementById("t1").innerHTML;
+    message.innerHTML= msg;
+}
+</script>
+
+ <script type="text/javascript" src = "message.js"></script>
+</body>
+
+
+</html>
