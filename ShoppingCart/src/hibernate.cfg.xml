@@ -23,6 +23,7 @@
       
       <!-- List of XML mapping files -->
       <mapping class="com.demo.model.User"/>
+      <mapping class="com.demo.model.Items"/>
       
    </session-factory>
 </hibernate-configuration>

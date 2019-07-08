@@ -2,6 +2,7 @@ package com.demo.service;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 
 
@@ -13,8 +14,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.mapping.List;
 
+import com.demo.model.Items;
 import com.demo.model.User;
 
 public class UserService {
@@ -23,7 +26,18 @@ SessionFactory factory;
 	public UserService() {
 		try {
 			factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-		} catch(Exception e) {
+			
+			//Adding items to cart_items table
+			/*Session session = factory.openSession();
+			Transaction t = session.beginTransaction();
+			Items i1=new Items("watch",350);
+			session.persist(i1);
+			t.commit();
+			 session.close();*/
+			
+		} 
+		
+		catch(Exception e) {
 			e.printStackTrace();
 			
 		}
@@ -38,7 +52,9 @@ SessionFactory factory;
 			t.commit();
 			 session.close();
 			
-		} catch(Exception e) {
+		} 
+		
+		catch(Exception e) {
 			e.printStackTrace();
 			
 		}

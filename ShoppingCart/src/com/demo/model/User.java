@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="login_details")
+@Table(name="login_cred")
 public class User {
 	
 
@@ -18,10 +18,10 @@ public class User {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
 
-@Column
+@Column(unique = true,nullable = false)
 private String username;
 
-@Column
+@Column(unique = true,nullable = false)
 private String password;
 
 public String getUsername() {

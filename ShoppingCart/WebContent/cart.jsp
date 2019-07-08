@@ -11,5 +11,8 @@
 </head>
 <body>
 <h1>Welcome to your cart....</h1>
+<% 
+
+%>
 </body>
 </html>
