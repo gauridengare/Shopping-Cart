@@ -1,34 +1,47 @@
 
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.demo.service.UserService;
+
 /**
- * Servlet implementation class Demo
+ * Servlet implementation class demo
  */
-@WebServlet("/Demo")
-public class Demo extends HttpServlet {
+@WebServlet("/demo")
+public class demo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Demo() {
+    public demo() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: None").append(request.getContextPath());
-		System.out.println("Hello from servlet");
+		
+		RequestDispatcher dispatcher = null;
+		String item = request.getParameter("item");
+		int item_price = Integer.parseInt(request.getParameter("item_price"));
+		int id=UserService.getUserId();
+		System.out.println("userId: "+id);
+		//int count=1;
+		UserService.addCartItems(item, item_price);
+		
+		System.out.println("Item Selected: "+item+" "+item_price);
+		dispatcher = request.getRequestDispatcher("./cart_items.jsp");
+		dispatcher.forward(request, response);
+
 		
 	}
 

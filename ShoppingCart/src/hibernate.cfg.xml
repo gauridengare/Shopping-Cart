@@ -15,7 +15,7 @@
       
       <!-- Assume test is the database name -->
       
-      <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/shopping_cart</property>
+      <property name = "hibernate.connection.url">jdbc:mysql://localhost:3306/final</property>
       
       <property name = "hibernate.connection.username">root</property>
       
@@ -23,7 +23,8 @@
       
       <!-- List of XML mapping files -->
       <mapping class="com.demo.model.User"/>
-      <mapping class="com.demo.model.Items"/>
+      
+    <mapping class="com.demo.model.CartItems"/>
       
    </session-factory>
 </hibernate-configuration>
