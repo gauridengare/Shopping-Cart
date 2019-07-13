@@ -1,0 +1,20 @@
+body{
+	 background: url("../images/backcart.jpg"); 
+	 background-size: 100px 50px;
+	  
+	   margin-left:10%;
+	   margin-right:10%;
+	   
+}
+table{
+  width: 200;
+  margin-top:10%;
+	   margin-right:10%;
+	   font-size:30px;
+}
+#total{
+	position:relative;
+	align:center;
+	color : brown;
+	font-size:35px;
+}

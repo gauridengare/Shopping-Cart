@@ -44,5 +44,16 @@ public class demo extends HttpServlet {
 
 		
 	}
-
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			   throws ServletException, IOException {
+		RequestDispatcher dispatcher = null;
+	
+			   System.out.println("Ready to Delete ");
+			   String item = request.getParameter("item");
+			   UserService.deleteCartItem(item);
+			   System.out.println("selected item to delete: "+item);
+			   dispatcher = request.getRequestDispatcher("./cart.jsp");
+				dispatcher.forward(request, response);
+			}
 }

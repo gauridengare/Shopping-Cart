@@ -17,24 +17,16 @@
 <form  method="GET"> 
 <input type="text" name="username" /><br>
 <br>
-<input type="text" name="password" /><br>
+<input type="password" name="password" /><br>
 <br>
 <!-- <input type="submit" value="SIGN UP" /> -->
 <button type="submit" formaction="login.jsp">LOG IN</button>
-<input type="submit" formaction="Register.jsp" onclick="myFunction()" value="SIGN UP" />
+<input type="submit" formaction="Register.jsp" value="SIGN UP" />
 </form>
 </div>
 
-<p><span id = "message"></span> </p>
-<p1 id="t1" hidden><font size="6" color="white"><strong>Singed In...Log In now....</strong></font></p1>
 
-<script type="text/javascript">
-function myFunction() {
-	
-	var msg = document.getElementById("t1").innerHTML;
-    message.innerHTML= msg;
-}
-</script>
+
 
  <script type="text/javascript" src = "message.js"></script>
 </body>

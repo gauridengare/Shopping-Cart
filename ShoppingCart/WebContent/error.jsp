@@ -19,8 +19,8 @@ font=weight:bald;
 </head>
 <body>
 <div>
-Invalid login
-<a href="index.html">Try Login again...</a>
+Invalid login or User Already Exits
+<br><a href="index.html">Try Login again...</a>
 </div>
 </body>
 </html>
