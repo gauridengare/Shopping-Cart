@@ -7,14 +7,21 @@
 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
 <link rel="stylesheet" type="text/css" href="css/login.css"> 
+<
 </head>
 <body>
 <% 
 Object userid = session.getAttribute("userId"); 
+
+	 
 %>
-<a id="cart" href="cart.jsp"><img id="cart" src="images/carticon.png" title="cart" alt="your cart"></a>
-	<p style="color:green;font-size:30px"> Welcome  <%= userid %> ...</p>
+<a style="position:relative;right:-1050px;top:-30px" id="cart" href="cart.jsp"><img id="cart" src="images/carticon.png" title="cart" alt="your cart"></a>
+	<p style="color:green;font-size:30px;top:-50px"> <Strong>Welcome  <%= userid %> ...</Strong></p>
+<a style="position:relative;color:green;font-size:30px;top:-130px;left:-33px;" href="Profile.jsp">Profile</a>
+<a style="position:relative;color:green;font-size:30px;top:-130px;left:-15px;" href="logout.jsp">Logout</a>
+
 <div>
 <form action="./demo" method="get">
 <img src="images/laptop.jpg" alt="laptop" >

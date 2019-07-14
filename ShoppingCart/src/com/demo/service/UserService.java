@@ -42,20 +42,20 @@ public class UserService {
 	public int insertUser(User user) {
 		try {
 			
-			 Session session = factory.getCurrentSession();
-			Transaction t = session.beginTransaction();
+			 Session session1 = factory.getCurrentSession();
+			Transaction t = session1.beginTransaction();
 			
 			String queryString = "from User where password = :pwd and username = :name";
-			Query query = session.createQuery(queryString);
+			Query query = session1.createQuery(queryString);
 			;
 			query.setString("name", user.getUsername());
 			query.setString("pwd", user.getPassword());
 
 			Object queryResult = query.uniqueResult();
 			if (queryResult == null) {
-			session.persist(user);
+			session1.persist(user);
 			t.commit();
-			session.close();
+			
 			}
 			else
 			{
@@ -69,11 +69,11 @@ public class UserService {
 
 	public String login(User user) {
 		
-		Session session = factory.getCurrentSession();
-		session.beginTransaction();
+		Session session2 = factory.getCurrentSession();
+		session2.beginTransaction();
 
 		String queryString = "from User where password = :pwd and username = :name";
-		Query query = session.createQuery(queryString);
+		Query query = session2.createQuery(queryString);
 		;
 		query.setString("name", user.getUsername());
 		query.setString("pwd", user.getPassword());
@@ -84,6 +84,7 @@ public class UserService {
 			return null;
 		user1 = (User) queryResult;
 		// session.getTransaction().commit();
+		
 		return user1.getUsername();
 	}
 
@@ -93,28 +94,27 @@ public class UserService {
 
 	public static void addCartItems(String item, int price) {
 		try {
-			Session session=factory.getCurrentSession();
-			Transaction t = session.beginTransaction();
+			Session session3=factory.getCurrentSession();
+			Transaction t = session3.beginTransaction();
 			String queryString = "from CartItems as c where c.item_name = :name and c.user = :usr";
-			Query query = session.createQuery(queryString);
+			Query query = session3.createQuery(queryString);
 			query.setString("name", item);
 			query.setParameter("usr", user1);
 			Object queryResult = query.uniqueResult();
 			CartItems cartitem = (CartItems) queryResult;
 			if (queryResult == null) {
 				CartItems e = new CartItems(item, price, count, user1);
-				session.persist(e);
+				session3.persist(e);
 				t.commit();
 			} else {
 				String queryString1 = "update CartItems set item_count = :ct" + " where item_name = :it";
-				Query query1 = session.createQuery(queryString1);
+				Query query1 = session3.createQuery(queryString1);
 				query1.setString("it", item);
 				query1.setInteger("ct", cartitem.getItem_count() + 1);
 				int result = query1.executeUpdate();
 				t.commit();
 			}
-			// session.close();
-			session.close();
+			 
 		} catch (Exception e) {
 			e.printStackTrace();
 
@@ -125,27 +125,28 @@ public class UserService {
 	public ArrayList<CartItems> viewCart()
 	{
 		ArrayList<CartItems> list = new ArrayList<CartItems>();
-		Session session = factory.getCurrentSession();
-		Transaction t = session.beginTransaction();
+		Session session4 = factory.getCurrentSession();
+		Transaction t = session4.beginTransaction();
 		String queryString = "from CartItems as c where c.user = :usr";
-		Query query = session.createQuery(queryString);
+		Query query = session4.createQuery(queryString);
 		query.setParameter("usr", user1);
 		list = (ArrayList<CartItems>) query.list();
-		
+		session4.close();
 		return list;
 		
 	}
 	
 	public static void deleteCartItem(String item)
 	{
-		Session session = factory.getCurrentSession();
-		Transaction t = session.beginTransaction();
+		Session session4 = factory.getCurrentSession();
+		Transaction t = session4.beginTransaction();
 		String queryString = "delete CartItems as c where c.user = :usr and c.item_name = :name";
-		Query query = session.createQuery(queryString);
+		Query query = session4.createQuery(queryString);
 		query.setParameter("usr", user1);
 		query.setString("name", item);
 		query.executeUpdate();
 		t.commit();
+		
 		
 	}
 }

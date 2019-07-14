@@ -1,0 +1,17 @@
+body{
+	 background: url("../images/backcart.jpg"); 
+	 background-size: 100px 50px;
+	  
+	   margin-left:10%;
+	   margin-right:10%;
+}
+#cart{
+	position: absolute;
+	
+	display: block;
+  top: 8px;
+  right: -30px;
+  height: 50px;
+	width: 50px;
+  
+}

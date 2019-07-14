@@ -19,6 +19,9 @@
 </head>
 <body>
 <h1>Welcome to your cart....</h1>
+<a style="position:relative;color:green;font-size:30px;top:-15px;" href="cart_items.jsp">Back to Items</a>
+<a style="position:relative;color:green;font-size:30px;top:-40px;left:950px;" href="Profile.jsp">Profile</a>
+<a style="position:relative;color:green;font-size:30px;top:-40px;left:960px;" href="logout.jsp">Logout</a>
 <jsp:useBean id="service" class="com.demo.service.UserService" />
 <%
    int total=0;
