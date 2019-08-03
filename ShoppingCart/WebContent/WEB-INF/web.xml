@@ -14,21 +14,19 @@
     <location>/DplicateCred.jsp</location>
   </error-page>
   <filter>
-   <filter-name>DemoJspFilter</filter-name>
-   <filter-class>LogoutFilter</filter-class>
-   <init-param>
-                  <param-name>init-param</param-name>
-                  <param-value>Demo init filter parameters</param-value>
-   </init-param>
-</filter>
-<filter-mapping>
-   <filter-name>DemoJspFilter</filter-name>
-   <url-pattern>/cart_items.jsp</url-pattern>
-  
-</filter-mapping>
-<filter-mapping>
-   <filter-name>DemoJspFilter</filter-name>
-   <url-pattern>/cart.jsp</url-pattern>
-  
-</filter-mapping>
-</web-app> 
+    <filter-name>DemoJspFilter</filter-name>
+    <filter-class>LogoutFilter</filter-class>
+    <init-param>
+      <param-name>init-param</param-name>
+      <param-value>Demo init filter parameters</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>DemoJspFilter</filter-name>
+    <url-pattern>/cart_items.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>DemoJspFilter</filter-name>
+    <url-pattern>/cart.jsp</url-pattern>
+  </filter-mapping>
+</web-app>

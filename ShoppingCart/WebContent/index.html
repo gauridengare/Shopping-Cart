@@ -21,9 +21,19 @@
 <br>
 <!-- <input type="submit" value="SIGN UP" /> -->
 <button type="submit" formaction="login.jsp">LOG IN</button>
-<input type="submit" formaction="Register.jsp" value="SIGN UP" />
-</form>
+<input id="signup" type="submit" formaction="Register.jsp" value="SIGN UP" onclick="myFunction()" />
+</form><p id ="msg" hidden>This paragraph should be hidden.</p>
+
 </div>
+<script>
+
+function myFunction() {
+	document.getElementById("msg").style.visibility = "visible"; 
+  document.getElementById("msg").innerHTML = "Singed up successfully...login now";
+   
+	
+}
+</script>
 
 
 

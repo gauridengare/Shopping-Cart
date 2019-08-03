@@ -27,6 +27,8 @@
       <mapping class="com.demo.model.User"/>
       
     <mapping class="com.demo.model.CartItems"/>
+    
+    <mapping class="com.demo.model.Profile"/>
       
    </session-factory>
 </hibernate-configuration>

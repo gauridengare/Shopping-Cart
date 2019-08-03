@@ -19,8 +19,8 @@ Object userid = session.getAttribute("userId");
 %>
 <a style="position:relative;right:-1050px;top:-30px" id="cart" href="cart.jsp"><img id="cart" src="images/carticon.png" title="cart" alt="your cart"></a>
 	<p style="color:green;font-size:30px;top:-50px"> <Strong>Welcome  <%= userid %> ...</Strong></p>
-<a style="position:relative;color:green;font-size:30px;top:-130px;left:-33px;" href="Profile.jsp">Profile</a>
-<a style="position:relative;color:green;font-size:30px;top:-130px;left:-15px;" href="logout.jsp">Logout</a>
+<a style="position:relative;color:green;font-size:30px;top:-130px;left:515px;" href="Profile.jsp">Profile</a>
+<a style="position:relative;color:green;font-size:30px;top:-130px;left:550px;" href="logout.jsp">Logout</a>
 
 <div>
 <form action="./demo" method="get">

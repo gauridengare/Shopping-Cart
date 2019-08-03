@@ -43,7 +43,7 @@ div{
 
 }
 #addcart{
-	position: absolute;
+	position: relative;
 	font-size:30px;
 	left:265px;
 	bottom: 165px;

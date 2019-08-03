@@ -10,13 +10,12 @@
 </head>
 <body>
 <jsp:useBean id="service" class="com.demo.service.UserService" />
-<jsp:useBean id="user" class="com.demo.model.User" />
-<jsp:setProperty property="*" name="user" />
+<jsp:useBean id="profile" class="com.demo.model.Profile" />
+<jsp:setProperty property="*" name="profile" />
 <%
-int result = service.insertUser(user);
-session.setAttribute("result",result);
+int result = service.insertProfile(profile);
 if(result > 0)
-	response.sendRedirect("index.html");
+	response.sendRedirect("Profile.jsp");
 else
 	response.sendRedirect("error.jsp");
 

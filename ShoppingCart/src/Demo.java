@@ -72,7 +72,7 @@ public class demo extends HttpServlet {
 			   dispatcher1 = request.getRequestDispatcher("./cart.jsp");
 				dispatcher1.forward(request, response);
 		       }
-			   
+		
 			}
 	
 }

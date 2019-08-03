@@ -17,6 +17,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.hibernate.mapping.List;
 
 import com.demo.model.CartItems;
+import com.demo.model.Profile;
 import com.demo.model.User;
 
 public class UserService {
@@ -66,7 +67,24 @@ public class UserService {
 		}
 		return 1;
 	}
-
+    public int insertProfile(Profile profile)
+    {
+    	try {
+			
+			 Session session1 = factory.getCurrentSession();
+			Transaction t = session1.beginTransaction();
+			profile.setUser(user1);
+			session1.persist(profile);
+			t.commit();
+			
+			}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return 1;
+		
+    }
+	
 	public String login(User user) {
 		
 		Session session2 = factory.getCurrentSession();
@@ -136,11 +154,39 @@ public class UserService {
 		
 	}
 	
+	public ArrayList<Profile> viewProfiles()
+	{
+		ArrayList<Profile> list = new ArrayList<Profile>();
+		Session session4 = factory.getCurrentSession();
+		Transaction t = session4.beginTransaction();
+		String queryString = "from Profile as c where c.user = :usr";
+		Query query = session4.createQuery(queryString);
+		query.setParameter("usr", user1);
+		list = (ArrayList<Profile>) query.list();
+		session4.close();
+		return list;
+		
+	}
+	
 	public static void deleteCartItem(String item)
 	{
 		Session session4 = factory.getCurrentSession();
 		Transaction t = session4.beginTransaction();
 		String queryString = "delete CartItems as c where c.user = :usr and c.item_name = :name";
+		Query query = session4.createQuery(queryString);
+		query.setParameter("usr", user1);
+		query.setString("name", item);
+		query.executeUpdate();
+		t.commit();
+		
+		
+	}
+	
+	public static void deleteProfile(String item)
+	{
+		Session session4 = factory.getCurrentSession();
+		Transaction t = session4.beginTransaction();
+		String queryString = "delete Profile as c where c.user = :usr and c.firstName = :name";
 		Query query = session4.createQuery(queryString);
 		query.setParameter("usr", user1);
 		query.setString("name", item);

@@ -35,7 +35,10 @@ private String username;
 private String password;
 
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-private Set<CartItems> lawyer;
+private Set<CartItems> cartItems;
+
+@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+private Set<Profile> profiles;
 
 
 
@@ -59,10 +62,10 @@ public void setUserId(int userId) {
 	this.userId = userId;
 }
 public Set<CartItems> getLawyer() {
-	return lawyer;
+	return cartItems;
 }
 public void setLawyer(Set<CartItems> lawyer) {
-	this.lawyer = lawyer;
+	this.cartItems = cartItems;
 }
 
 
