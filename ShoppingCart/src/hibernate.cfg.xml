@@ -21,7 +21,7 @@
       
       <property name = "hibernate.connection.username">root</property>
       
-      <property name = "hibernate.connection.password">Gauriseth22</property>
+      <property name = "hibernate.connection.password">root</property>
       
       <!-- List of XML mapping files -->
       <mapping class="com.demo.model.User"/>
